@@ -1,0 +1,766 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100&display=swap');
+
+:root{
+    --blue:rgb(25, 22, 69);
+    --skyblue: #3498db;
+    --cream: #FFFFFF;
+    --black:#000100;
+    --green:#43C6AC;
+    --light-color:#666;
+    --light-bg:#eee;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border: .1rem solid rgba(0,0,0,.3);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0 ; padding: 0;
+    box-sizing: border-box;
+    outline: none;border: none;
+    text-decoration: none;
+}
+
+
+@mixin grid($val){
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax($val,1fr));
+    gap:2rem;
+
+}
+@mixin titleText($titleSize){
+    font-size: $titleSize;
+    color:var(--black);
+    text-transform: capitalize;
+}
+
+@mixin graphText($graphSize){
+    font-size: $graphSize;
+    color:var(--black);
+    line-height:2;
+}
+
+@mixin iconsBox(){
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color:var(--black);
+    cursor: pointer;
+    text-align: center;
+
+    &:hover{
+        background: var(--green);
+        color:var(--black);
+
+    }
+}
+
+
+html{
+    background: var(--cream);
+    font-size: 65%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+
+    &::-webkit-scrollbar{
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    }
+
+
+
+    section{
+        padding: 5rem 10%;
+    }
+
+    @keyframes fadeIn{
+        0%{
+            top: 50%;
+            opacity: 0;
+        }
+
+    }
+
+.header{
+    background-color: var(--blue);
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    box-shadow: var(--box-shadow);
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    font-size:5px;
+    border-bottom: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
+
+    .logo{
+
+        display: flex;
+        
+        @include titleText(3.5rem);
+        color: var(--cream);
+
+        img {
+            width: 70px; /* Adjust the width as needed */
+            height: auto;
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+
+        span{
+            color:var(--light-bg);
+        }
+        }
+
+        .navbar a{
+            display: inline-block;
+            @include titleText(2rem);
+            color: var(--cream);
+            margin: 0 1.2rem;
+            transition: all 0.3s;
+
+            &:hover{
+                color: var(--green);
+            }
+            }
+
+    .icons div{
+            @include iconsBox();
+            margin-left: .3rem;
+    }
+
+    #menu-btn{
+            display: none;
+    }
+
+
+    
+    
+    
+}
+
+//dropdown menu starts
+.header .navbar ul{
+    list-style: none;
+}
+
+.header .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+.header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    top: 120%;
+    width: 250px;
+    background: var(--blue);
+    display: none;
+}
+    
+.header .navbar ul li ul li{
+    width: 100%;
+    padding: 15px 0;
+    border: 0.1rem solid var(--green);
+}
+
+.header .navbar ul li ul li ul{
+    left: 250px;
+    top: 0;
+}
+
+.header .navbar ul li:focus-within > ul,
+.header .navbar ul li:hover > ul{
+    display: initial;
+}
+
+.myicon {
+    float: right;
+    margin-left: 10px;
+    padding-top: 3px;
+  }
+
+
+  .search-form{
+    position: absolute;
+    top: 120%; left: 50%;
+    transform: translateX(-50%);
+    width: 70rem;
+    background: var(--blue);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeIn .2s linear;
+
+    &.active{
+        display: flex;
+    }
+
+    input{
+        width: 100%;
+        padding: 1rem 1.2rem;
+        background: var(--light-bg);
+        font-size: 1.6rem;
+        color:var(--black);
+    }
+
+    label{
+        font-size: 2.5rem;
+        color:var(--cream);
+        cursor: pointer;
+        margin: 0 0.1rem;
+        background-color: transparent;
+        
+
+        &:hover{
+            color:var(--black);
+        }
+    }
+
+}
+.contact-info{
+    position: fixed;
+    top: 0; right: 0;
+    width: 30rem;
+    background: var(--cream);
+    height: 100%;
+    text-align: center;
+    z-index: 1100;
+    padding: 0 2rem;
+    padding-top: 5rem;
+    display: none;
+
+    &.active{
+        box-shadow: 0 0 0 100vw rgba(0,0,0,.7); 
+        display: block;
+    }
+
+
+#close-contact-info{
+   position: absolute;
+   top:1rem; right: 1.5rem;
+   cursor: pointer;
+   font-size: 4rem;
+   color: var(--blue);
+
+   &:hover{
+        color: var(--green);
+        transform: rotate(90deg);
+   }
+}
+
+.info{
+
+    padding: 2rem 0;
+
+    i{
+    @include iconsBox();
+    margin-bottom: .5rem;
+    }
+
+    h3{
+        @include titleText(2rem);
+        padding: 1rem 0;
+    }
+
+    p{
+        @include graphText(1.5rem);
+    }
+
+    }
+
+
+.share{
+    padding-top: 2rem;
+    border-top: var(--border);
+    margin-top: 1rem;
+    
+
+    a{
+        @include iconsBox();
+        margin:0 .3rem;
+    }
+
+}
+}
+
+
+.heading{
+    margin-bottom: 3rem;
+    @include titleText(3rem);
+    padding-left: 1rem;
+    border-left: 1rem solid var(--blue);
+}
+
+
+.btn{ //get started button
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    background: var(--blue);
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    transition:  .2s linear;
+
+    &:hover{
+        background: var(--green);
+        color: var(--black);
+    }
+}
+    
+
+      
+
+
+
+    //media queries
+
+@media (max-width:1200px){
+
+        .header{
+            padding: 1.5rem 2rem;
+        }
+        section{
+            padding: 3rem 5%;
+        }
+            
+    }
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+
+    section{
+        padding: 2rem 2rem;
+    }
+        
+    .header{
+
+        #menu-btn{
+            display: inline-block;
+        }
+
+        .navbar{
+            position: absolute;
+            top: 99%; left:0; right:0;
+            background:var(--blue);
+            border-top: var(--border);
+            border-bottom: var(--border);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+
+            &.active{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+        a{
+            display: block;
+            margin: 2rem;
+        }    
+        }
+    }
+}
+
+
+@media (max-width:768px){
+
+.header{
+    .search-form{
+        width: 70%;
+    }
+}
+    .home .slide{
+        justify-content: center;
+
+        .content{
+            text-align: center;
+
+            h3{
+                font-size: 3rem;
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+    
+//drop down menu ends
+    
+
+
+@media (max-width:450px){
+    html{
+        font-size: 40%;
+    }
+
+}
+
+
+
+
+
+ //home section  
+.home{
+    padding: 0;
+
+    .slide{
+        min-height: 60rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-size: cover !important;
+        background-position: center !important;
+        
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--light-color), transparent);
+            opacity: 1;
+        }
+        
+
+        .content{
+           width: 50rem;
+           position: relative;
+
+           h3{
+            @include titleText(2.5rem);
+            text-transform: uppercase;
+            color: var(--black);
+            }
+
+            p{
+                @include graphText(1.3rem);
+                line-height: 1.5rem;
+                padding: 1rem 0;
+            }   
+        }
+    }
+}
+   
+//readmore button starts
+#ch{
+    display: none;
+
+}
+
+#ch:checked ~ .full-content{
+    display: block;
+}
+
+#ch:checked ~ label{
+    display: none;
+}
+
+.full-content{
+    display: none;
+}
+
+label{
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+    color: var(--cream);
+    background-color: var(--blue);
+    padding: 3px 13px;
+    border-radius: 3px;
+    margin-top: 12px;
+
+    &:hover{
+        background-color: var(--green);
+        color: var(--blue);
+    }
+    
+}
+//readmore button ends
+
+
+//swiping_slide starts
+.swiper-button-next,
+.swiper-button-prev
+{
+  
+  height: 6rem;
+  width: 4rem;
+  line-height: 5rem;
+  font-size: 5rem;
+  background: var(--cream);
+
+  &:hover{
+    background: var(--light-color);
+  }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+    font-size: 3.5rem;
+    color: var(--black);
+}
+
+.swiper-button-prev{
+  right:7rem ;  
+}
+//swiping_slide ends
+
+
+
+//about section starts
+.about {
+    .row {
+      display: flex;
+      align-items: flex-start; // Align items to the start (top) of the container
+      flex-wrap: wrap;
+      gap: 3rem;
+  
+      .video {
+        flex: 1 1 41rem;
+  
+        video {
+          width: 100%;
+        }
+      }
+  
+      .paragraph {
+        flex: 2 1 41rem;
+        display: flex;
+        flex-direction: column; // Align children in a column
+        align-items: flex-start; // Align items to the start (top) of the container
+  
+        h3 {
+          @include titleText(3.5rem);
+          height: 5rem;
+          margin: 0; // Remove default margin
+        }
+  
+        p {
+          @include graphText(1.5rem);
+          line-height: 2.5rem;
+          padding: 1rem 0;
+          margin: 0; // Remove default margin
+        }
+  
+        span {
+          font-weight: bold;
+          color: var(--green);
+        }
+      }
+    }
+  
+    .box-container {
+      margin-top: 3rem;
+      @include grid(16rem);
+  
+      .box {
+        text-align: center;
+        background: var(--light-bg);
+        padding: 3rem 2rem;
+  
+        h3 {
+          @include titleText(4rem);
+        }
+  
+        p {
+          @include graphText(1.5rem);
+          padding-top: 0.5rem;
+        }
+      }
+    }
+  }
+  
+    
+
+.services{
+    
+
+    .box-container{
+        @include grid(40rem);
+        
+        .box{
+            position: relative;
+            text-align: center;
+            line-height: 1.8rem;
+            padding: 2.7rem;
+            background: var(--light-bg);    
+            box-shadow: var(--box-shadow);
+            border: var(--border);
+            transition:  .2s linear;
+            
+        
+            &:hover img{
+                
+                transform: translateY(-1.3rem);
+                
+            }
+
+            img{
+                width: 32rem;
+                height: 22rem;
+                margin-bottom: 0.5rem;
+                border: 5px solid rgba(0,0,0,.3);
+            }
+            
+            h3{
+                @include titleText(1.8rem);
+                color: var(--black);
+                padding: 1rem 0;
+                
+            }
+            p{
+                color: var(--blue);
+                font-size: 120%;
+            }
+
+            &:hover {
+                background-color: var(--light-bg);
+              }
+        }
+    }
+}
+
+
+/* Glassmorphism Effect */
+.services .box-container .box {
+    background: rgba(255, 255, 255, 0.15); /* Add a translucent white background */
+    backdrop-filter: blur(10px); /* Apply a blur effect to create frosted glass */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Add a border with reduced opacity */
+    transition: transform 0.3s ease; /* Add a smooth transition effect on hover */
+    opacity: 0.5;
+
+    &:hover {
+        transform: translateY(-1rem);
+        opacity: 1;
+        
+    }
+
+}
+
+
+//words from ceo
+.words {
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: var(--blue); /* Turquoise color */
+    color: white; /* Text color */
+
+    h1 {
+        text-align: left;
+        @include titleText(4.8rem);
+        height: 6rem;
+        line-height: 2.5rem; 
+      }
+
+      .imageside {
+        display: inline-block; /* Use flex container for items inside imageside */
+        flex-direction: column; /* Stack items vertically */
+        align-items: bottom; /* Align items to the left */
+        margin-top: 20px; /* Add margin to separate from the p*/
+    }
+
+    img {
+        width: 10%;
+        height: 10%;
+        margin-right: 20px; /* Add margin to separate image and text */
+    }
+  
+    .paragraph {
+      padding: 20px; // Adjust as needed
+      display: inline-block;
+      text-align: left; // Align text to the left within the 
+      border-radius: 10px;
+      display: flex; /* Change to flex container to align items */
+      align-items: center; /* Center items vertically */
+      justify-content: center; /* Center items horizontally */     
+  
+      p {
+        @include graphText(1.8rem);
+        line-height: 3.5rem;
+        padding: 1rem 0;
+        margin: 0; // Remove default margin
+      }
+  
+      span {
+        font-weight: bold;
+        color: white;
+      }
+    }
+  }
+  
+
+  //contact section starts
+
+.contact{
+    background: var(--light-bg);
+
+    .heading{
+        color: var(--black);
+    }
+
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+
+        .map{
+            flex: 1 1 41rem;
+            width: 100%;
+        }
+
+        form{
+            flex: 1 1 41rem;
+            background: var(--cream);
+            padding: 2rem;
+
+            h3{
+                @include titleText(2.5rem);
+                padding-bottom: 1rem;
+                
+            }
+
+            .box{
+                margin: .7rem 0;
+                width: 100%;
+                padding: 1rem 1rem;
+                background: var(--light-bg);
+                font-size: 1.6rem;
+                color: var(--black);
+
+                &:focus{
+                    border-color: var(--green);
+                }
+            }
+
+            textarea{
+                height: 15rem;
+                resize: none;
+            }
+        }
+    }
+}
+
+
+ 
