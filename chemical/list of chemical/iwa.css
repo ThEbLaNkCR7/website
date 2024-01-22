@@ -1,0 +1,293 @@
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --black: #000100;
+    --blue: #0A2472;
+    --dark: #191645;
+    --teal: #4E4E6A;
+    --light: #00072D;
+    --light-bg: #666;
+    --luma: #EEEEEE;//dominant color
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --green: #43C6AC;
+    --border: 0.5rem solid var(--black);
+}
+
+html {
+    background: var(--luma);
+    font-size: 60%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.header{
+    background-color: var(--light); /* Set the desired background color */
+    width: 100%;
+    height: 40px; /* Adjust the height as needed */
+}
+
+body {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--luma);
+    font-color: var(--dark);
+    padding: 5px 22px 0px 22px;
+    border-left: var(--border);
+    border-right: var(--border);
+    word-spacing: 3px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    
+}
+
+li{
+    font-size: 20px; 
+    line-height: 2.5;   
+}
+strong {
+    font-weight: bold;
+}
+
+body .span_class{
+    font-weight: bold;
+}
+
+.container {
+    position: relative;
+}
+
+.overlaytxt{
+    margin-top:20px;
+    margin-bottom:
+    color : var(--black) ;
+    position: relative;
+    margin-top: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.overlaytxt h1{
+    font-size:50px;
+    margin:0;
+    margin-top:20px;
+}
+.overlaytxt h3{
+    margin-top: 3px;
+    font-size: 15px;
+    color: var(--dark);
+}
+
+.description h1{
+    margin-top:50px;
+}
+
+.description  p{
+    padding-bottom:50px;
+    padding-top:none;
+}
+
+button {
+    color: var(--luma);
+    font-size: 20px;
+    font-weight: bolder;
+    background: var(--light);
+    border: 2px solid var(--teal);
+    padding: 10px 15px;
+    border-radius:8px;
+    margin-top : 20px;
+    margin-button: 20px;
+    text-transform: uppercase;
+}
+
+.heading{
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  color: var(--black);
+  text-transform: capitalize;
+  padding-left: 1rem;
+  border-left: 1rem solid var(--light);
+}
+
+table {
+    margin: 20px auto;
+    border: 3px solid var(--black);
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+}
+
+table td {
+    text-transform: uppercase;
+    color: #000100;
+    font-size: 15px;
+    border: 3px solid var(--light);
+    padding: 10px;
+    text-align: center;
+}
+
+.advantages-list {
+    list-style-type: disc;
+}
+
+.advantages {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.advantages-list {
+    padding-bottom:50px;
+    flex: 1;
+    list-style-type: disc;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.advantages-list li::first-letter{
+    text-transform: uppercase;
+}
+
+.advantages-list li{
+    text-transform: lowercase;
+    flex: 0 0 50%;
+}
+
+.area p{
+    align-items:center;
+}
+
+.arealist{
+    padding-bottom:50px;
+    flex: 1;
+    list-style-type: disc;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.arealist li::first-letter{
+    text-transform: uppercase;
+}
+
+.arealist li{
+    text-transform: lowercase;
+    flex: 0 0 50%;    
+}
+
+.container img{
+    border: 3px solid var(--dark); /* Set your desired border properties */
+    border-top: none;
+    box-sizing: border-box;
+    padding: none;
+    width: 100%;
+    height: 60rem;
+}
+
+.last{
+    background-color: var(--black);
+    width:100%;
+    height:20px;
+    margin: 0;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+.uses{
+    padding-bottom:50px;
+}
+
+.useslist ul li{
+    list-style-type: disc;
+    margin-left: 40px; /* Adjust the left margin as needed */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.adv img{
+    border: 3px solid var(--dark); 
+    width:100%;
+    height: 22rem;
+}
+
+.benefits img{
+    width:100%;
+    height:70rem;
+    margin-bottom:20px;
+    border: 3px solid var(--dark); 
+}
+
+
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid var(--dark);
+    background-color: #FFD700;
+    padding: 20px; /* Add padding for spacing */
+}
+
+.circular-image {
+    position: relative;
+    text-align: center;
+}
+
+.circular-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.cross-mark {
+    color: red;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.image-text {
+    color: var(--blue);
+    font-size: 20px;
+    margin-top: 5px; /* Add margin between text and image */
+}
+
+
+
